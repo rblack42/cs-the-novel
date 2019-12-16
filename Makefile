@@ -1,9 +1,11 @@
 # Makefile - book building
 
-MAIN	:= main.tex
+MAIN	:= main
 
 .PHONY: all
 all:
+	pdflatex $(MAIN)
+	bibtex $(MAIN)
 	pdflatex $(MAIN)
 
 .PHONY: clean
