@@ -4,9 +4,8 @@ MAIN	:= main
 
 .PHONY: all
 all:
-	pdflatex $(MAIN)
-	bibtex $(MAIN)
-	pdflatex $(MAIN)
+	pdflatex --shell-escape $(MAIN)
+	pdflatex --shell-escape $(MAIN)
 
 .PHONY: clean
 clean:

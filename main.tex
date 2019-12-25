@@ -1,22 +1,17 @@
-\documentclass[12pt,letterpaper]{book}
-\usepackage{csnovel}
-\makeindex
+\documentclass[12pt,twoside,titlepage]{book}
+\usepackage{canovel}
+\title{
+	{The Science of Computers}\\
+	{\large A Novel Approach}
+}
+\author{Roie R. Black}
+\date{20 December 2019}
+\titlepic{\includegraphics[width=0.66\textwidth]{./assets/images/intel-4004.jpg}}
 
 \begin{document}
-\input{./tex/title.tex}
 \maketitle
-\tableofcontents
-\listoffigures
-\listoftables
-\subfile{./tex/blueflame}
-\subfile{./tex/atoms}
-\subfile{./tex/bibliography}
-
-\appendix
-\subfile{./tex/appendix}
-\subfile{./tex/cast-of-characters}
-
-\printindex
-
+\graphicspath{{./assets/images/}}
+\input{tex/blueflame}
+\input{tex/electricity}
 \end{document}
 
