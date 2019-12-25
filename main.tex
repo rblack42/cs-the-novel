@@ -9,9 +9,18 @@
 \titlepic{\includegraphics[width=0.66\textwidth]{./assets/images/intel-4004.jpg}}
 
 \begin{document}
-\maketitle
-\graphicspath{{./assets/images/}}
-\input{tex/blueflame}
-\input{tex/electricity}
+  \graphicspath{{./assets/images/}}
+  \frontmatter
+    \maketitle
+    \tableofcontents
+    \listoffigures
+    \input{tex/preface}
+  \mainmatter
+    \input{tex/blueflame}
+    \input{tex/electricity}
+  \backmatter
+    \appendix
+      \input{tex/cast-of-characters}
+    \bibliography{references}
 \end{document}
 
