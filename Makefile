@@ -4,8 +4,7 @@ MAIN	:= main
 
 .PHONY: all
 all:
-	pdflatex --shell-escape $(MAIN)
-	pdflatex --shell-escape $(MAIN)
+	latexmk -pdf -pdflatex="pdflatex -shell-escape"
 
 .PHONY: clean
 clean:

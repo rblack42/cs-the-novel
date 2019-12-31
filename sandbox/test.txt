@@ -1,0 +1,12 @@
+bashline-test.aux
+bashline-test.dvi
+bashline-test.fdb_latexmk
+bashline-test.fls
+bashline-test.log
+bashline-test.tex
+bashline.sty
+main.aux
+main.log
+main.pdf
+main.tex
+test.txt

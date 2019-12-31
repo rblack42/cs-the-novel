@@ -3,17 +3,24 @@
 \usepackage{graphicx}
 \graphicspath{./assets/images/}
 
+\usepackage{booktabs}
+
+\usepackage{awesomebox}
+% bibliography
+\usepackage{natbib}
+\bibliographystyle{apalike}
+
 % program listing support
 \usepackage{minted}
 
-% page layout for 6x9 text
+% page layout for 7x9 text
 \usepackage[
 	paperheight=11in,
 	paperwidth=8.5in,
 	layoutheight=9.25in,
-	layoutwidth=6.25in,
-	layoutvoffset=0.875in,
-	layouthoffset=1.125in,
+	layoutwidth=7.25in,
+	layoutvoffset=0.875in,  % (11 - 9.25)/2
+	layouthoffset=0.625in,  % ((8.5 - 7.25) / 2
 	margin=1in,
 	headheight=14pt,
 	headsep=25pt,
@@ -23,3 +30,4 @@
 ]{geometry}
 
 \usepackage[parfill]{parskip}  % To begin paragraphs with an empty line rather than an indent
+

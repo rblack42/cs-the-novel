@@ -13,11 +13,17 @@
   \frontmatter
     \maketitle
     \tableofcontents
-    \listoffigures
     \input{tex/preface}
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures\newpage
+    \addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables\newpage
   \mainmatter
+    \setlength{\aweboxcontentwidth}{0.8\linewidth}
     \input{tex/blueflame}
     \input{tex/electricity}
+    \input{tex/nicks-lab}
+    \input{tex/boolean-algebra}
   \backmatter
     \appendix
       \input{tex/cast-of-characters}

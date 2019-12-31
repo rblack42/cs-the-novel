@@ -1,0 +1,34 @@
+%& -shell-escape
+% !TeX encoding = UTF-8
+
+\documentclass[14pt,a4paper]{extarticle}
+
+% Just for fun
+\setlength{\parskip}{1.5ex plus 1.5ex minus 1.2ex}
+\setlength{\parindent}{-1.5em}
+
+
+\usepackage{bashline}
+\usepackage[utf8]{inputenc}
+
+\title{bashline test}
+\author{Ilya Nikitin}
+\date{October 2016}
+
+\begin{document}
+
+    
+    Current moment: \hfill  \texttt{\bashdatetime}\par
+    Another moment: \hfill  \texttt{\bashdatetime}\par
+    One more moment: \hfill \texttt{\bashdatetime}\par
+ 
+    So \texttt{ls  /home/kadar} gives you:\par
+    \bashlines{ls ../var/lib}
+
+\bashline{date -R}%
+
+
+\bashdate
+    
+\end{document}
+

@@ -1,0 +1,74 @@
+% !TeX encoding = UTF-8
+\ProvidesPackage{bashline}[2016/10/24 v. 0.1]
+
+\makeatletter
+    \newcommand{\bashline@file@name}[1]{%
+        /tmp/${USER}-${HOSTNAME}-\jobname-#1.tex%
+    }
+    \newread\bashline@file
+    \newcommand{\bashline@command@one}[2][tmp]{%
+        \immediate\write18{#2 > \bashline@file@name{#1}}
+        \openin\bashline@file=\bashline@file@name{#1}
+        % The group localizes the change to \endlinechar
+        \bgroup
+            \endlinechar=-1
+            \read\bashline@file to \localline
+            % Since everything in the group is local, 
+            % we have to explicitly make the assignment global
+            \global\let\bashline@result\localline
+        \egroup
+        \closein\bashline@file
+        % Clean up after ourselves
+        \immediate\write18{rm \bashline@file@name{#1}}
+        \bashline@result
+    }
+    \newcommand{\bashline@command@many}[2][tmp]{%
+        \immediate\write18{#2 > \bashline@file@name{#1}}
+        \openin\bashline@file=\bashline@file@name{#1}
+        % The group localizes the change to \endlinechar
+        \newcount\linecnt
+        \bgroup
+            \endlinechar=-1
+            \loop\unless\ifeof\bashline@file 
+                \read\bashline@file to \localline%
+                \localline
+                \newline
+            \repeat
+        \egroup
+        \closein\bashline@file
+        % Clean up after ourselves
+        \immediate\write18{rm \bashline@file@name{#1}}
+    }
+    \newcommand{\bashline}[2][tmp]{%
+        \bashline@command@one[#1]{#2}%
+    }
+    \newcommand{\bashlines}[2][tmp]{%
+        \bashline@command@many[#1]{#2}%
+    }
+\makeatother
+
+\newcommand{\urandomstring}[1]{%
+    \bashline{cat /dev/urandom | tr -dc "A-Za-z0-9" | fold -c#1 | head -1}%
+}
+
+\newcommand{\bashdate}{%
+    \bashline{date -R}%
+}
+
+\newcommand{\bashdatetime}{%
+    \bashline{date -R}%
+}
+
+\newcommand{\commit}{%
+    \bashline{git describe --dirty }%
+}
+
+\newcommand{\commitlog}{%
+    \bashline{git log -1 --oneline}%
+}
+
+\newcommand{\branch}{%
+    \bashline{git describe --all}%
+}
+
+\endinput
